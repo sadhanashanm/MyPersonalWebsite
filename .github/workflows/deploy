@@ -1,0 +1,32 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or 'master', depending on your default branch name
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # If you have a build step (e.g., for a static site generator like Jekyll, Hugo, or a frontend framework like React/Vue/Angular)
+      # uncomment and modify this section
+      # - name: Setup Node.js (example for a JavaScript project)
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '18'
+      # - name: Install dependencies
+      #   run: npm install
+      # - name: Build project
+      #   run: npm run build # Replace with your build command
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build # Or the directory where your built site resides (e.g., './build', './public', './dist')
+          # If you have a custom domain, you can also specify it here:
+          # cname: your-custom-domain.com
