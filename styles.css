@@ -33,6 +33,10 @@ button {
     border-radius: 5px;
 }
 
+button.primary {
+    background: #FF69B4;
+}
+
 button:hover {
     background: #0056b3;
 }
@@ -55,3 +59,4 @@ li {
     background: #444;
     box-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
+
